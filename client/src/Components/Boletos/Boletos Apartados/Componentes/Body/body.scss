@@ -1,0 +1,58 @@
+
+:root{
+    --PrimaryColor: hsl(353, 60%, 46%);
+    --HoverColor: #ff7a8a;
+    --paleGreen:  hsl(0, 50%, 85%);
+    --whiteColor: hsl(0,0%,100%);
+    --blackColor: hsl(0,0%,18%);
+    --textColor: hsl(240,1%,48%);
+    --bgColor: hsl(220,10%,94%);
+    --greyText: rgb(190,190,190);
+    --inputColor: hsl(330,12%,97%);
+    --itemCardColor: hsl(120,5%,88%);
+    --itemCardHover: hsl(0, 63%, 68%);
+
+    /*Font and Typography*/
+    --biggestFontSize: 2.5rem;
+    --h1FontSize: 1.5rem;
+    --h2FontSize: 1.25rem;
+    --h3FontSize: 1rem;
+    --normalFontSize: .938rem;
+    --smallFontSize: .813rem;
+    --smallestFontSize: .75rem;
+}
+.mainContent{
+    width: 82%;
+    height: 100%;
+    padding: 2rem;
+    overflow: auto;
+    .bottom{
+        margin-top: 2rem;
+        gap: 2rem;
+        align-items: flex-start;
+        width: 100%;
+    }
+    .buttons{
+        text-align: end;
+        .btn{
+            background: transparent;
+            color: var(--blackColor);
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 400;
+            transition: .3s ease;
+            border: 2px solid var(--greyText);
+
+            &:hover{
+                background-color: var(--HoverColor);
+                color: var(--blackColor);
+                border: 2px solid transparent;
+            }
+        }
+    }
+}
+
+//Media querie
+
+@media screen and (max-width: 918px) {
+}

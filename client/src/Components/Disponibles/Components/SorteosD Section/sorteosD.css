@@ -1,0 +1,80 @@
+.sorteos-disponibles {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .sorteos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+  }
+  
+  .sorteo-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .sorteo-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .sorteo-item img {
+    width: 100%;
+    height: 200px; /* Fija una altura constante para todas las imágenes */
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
+    border-radius: 8px;
+  }
+  
+  .sorteo-item h3 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-size: 1.5rem;
+  }
+  
+  .sorteo-item button {
+    padding: 12px 25px;
+    background-color: #C13349;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s;
+  }
+  
+  .sorteo-item button:hover {
+    background-color: #a12c3f;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Media Queries */
+  @media (max-width: 768px) {
+    .sorteos-grid {
+      grid-template-columns: 1fr;
+      padding: 1rem;
+    }
+  
+    .sorteo-item {
+      padding: 0.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .sorteos-disponibles h2 {
+      font-size: 1.75rem;
+    }
+  
+    .sorteo-item img {
+      height: 150px; /* Ajusta la altura para pantallas más pequeñas si es necesario */
+    }
+  }
+  

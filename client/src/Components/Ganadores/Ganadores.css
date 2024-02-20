@@ -1,0 +1,35 @@
+:root {
+  --PrimaryColor: hsl(353, 60%, 46%);
+  --HoverColor: #ff7a8a;
+  --paleGreen: hsl(0, 50%, 85%);
+  --whiteColor: hsl(0,0%,100%);
+  --blackColor: hsl(0,0%,18%);
+  --textColor: hsl(240,1%,48%);
+  --bgColor: hsl(220,10%,94%);
+  --greyText: rgb(190,190,190);
+  --inputColor: hsl(330,12%,97%);
+  --itemCardColor: hsl(120,5%,88%);
+  --itemCardHover: hsl(0, 63%, 68%);
+}
+
+.inicio-page {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(-45deg, var(--bgColor), var(--inputColor), var(--itemCardColor), var(--whiteColor));
+  background-size: 400% 400%;
+  animation: gradientBG 20s ease infinite;
+  font-family: 'Arial', sans-serif;
+  color: var(--textColor);
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

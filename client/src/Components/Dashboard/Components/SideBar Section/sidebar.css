@@ -1,0 +1,224 @@
+:root {
+  --PrimaryColor: hsl(353, 60%, 46%);
+  --HoverColor: #ff7a8a;
+  --paleGreen: hsl(0, 50%, 85%);
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(0, 0%, 18%);
+  --textColor: hsl(240, 1%, 48%);
+  --bgColor: hsl(220, 10%, 94%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: hsl(330, 12%, 97%);
+  /*Font and Typography*/
+  --biggestFontSize: 2.5rem;
+  --h1FontSize: 1.5rem;
+  --h2FontSize: 1.25rem;
+  --h3FontSize: 1rem;
+  --normalFontSize: 0.938rem;
+  --smallFontSize: 0.813rem;
+  --smallestFontSize: 0.75rem;
+}
+
+.sideBar {
+  background: var(--whiteColor);
+  box-shadow: 1.5px 5px 10px var(--greyText);
+  width: 18%;
+  height: 100%;
+  gap: 3rem;
+  overflow: auto;
+}
+.sideBar .logoDiv {
+  padding: 1.5rem 1.5rem 0;
+  cursor: pointer;
+}
+.sideBar .logoDiv img {
+  max-width: 130px;
+  margin-right: 0.5rem;
+  background: transparent;
+  border-radius: 2px;
+  padding: 0.2rem;
+}
+.sideBar .logoDiv h2 {
+  font-size: var(--h3FontSize);
+  color: var(--PrimaryColor);
+}
+.sideBar .menuDiv .divTittle,
+.sideBar .settingsDiv .divTittle {
+  font-size: var(--h3FontSize);
+  color: var(--blackColor);
+  padding: 0 1.5rem 1.5rem;
+}
+.sideBar .menuDiv .menuLists .listItem,
+.sideBar .settingsDiv .menuLists .listItem {
+  position: relative;
+  padding: 0.5rem 1.5rem;
+  width: 100%;
+}
+.sideBar .menuDiv .menuLists .listItem::before,
+.sideBar .settingsDiv .menuLists .listItem::before {
+  position: absolute;
+  content: "";
+  height: 0%;
+  left: 0px;
+  width: 5px;
+  bottom: 0;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: var(--PrimaryColor);
+}
+.sideBar .menuDiv .menuLists .listItem .menuLink,
+.sideBar .settingsDiv .menuLists .listItem .menuLink {
+  color: var(--greyText);
+  font-weight: 500;
+  transition: 0;
+}
+.sideBar .menuDiv .menuLists .listItem .menuLink .icon,
+.sideBar .settingsDiv .menuLists .listItem .menuLink .icon {
+  margin-right: 0.5rem;
+}
+.sideBar .menuDiv .menuLists .listItem:hover .menuLink,
+.sideBar .settingsDiv .menuLists .listItem:hover .menuLink {
+  color: var(--PrimaryColor);
+  transition: 0;
+}
+.sideBar .menuDiv .menuLists .listItem:hover::before,
+.sideBar .settingsDiv .menuLists .listItem:hover::before {
+  height: 100%;
+  transition: 0.3s ease;
+}
+.sideBar .sideBarCard {
+  width: 95%;
+  padding-left: 1rem;
+  text-align: center;
+  position: relative;
+}
+.sideBar .sideBarCard .icon {
+  position: absolute;
+  background-color: var(--paleGreen);
+  border: 10px solid var(--whiteColor);
+  font-size: 3rem;
+  border-radius: 50%;
+  top: -8px;
+  right: 47%;
+  transform: translate(50%);
+  z-index: 100;
+}
+.sideBar .sideBarCard .cardContent {
+  position: relative;
+  padding: 1rem;
+  background: var(--HoverColor);
+  overflow: hidden;
+  border-radius: 10px;
+}
+.sideBar .sideBarCard .cardContent h3 {
+  font-size: var(--h3FontSize);
+  margin-top: 1rem;
+  padding: 0.8rem 0;
+  font-weight: 800;
+  color: var(--blackColor);
+}
+.sideBar .sideBarCard .cardContent p {
+  font-size: var(--normalFontSize);
+  margin-top: 0.1rem;
+  padding: 0.6rem 0;
+  font-weight: var(--blackColor);
+}
+.sideBar .sideBarCard .cardContent .btn {
+  position: relative;
+  color: var(--textColor);
+  z-index: 1000;
+}
+.sideBar .sideBarCard .cardContent .circle1,
+.sideBar .sideBarCard .cardContent .circle2 {
+  position: absolute;
+  background: var(--paleGreen);
+  border-radius: 50%;
+  opacity: 0.7;
+}
+.sideBar .sideBarCard .cardContent .circle1 {
+  height: 100px;
+  width: 100px;
+  top: -50px;
+  left: -50px;
+}
+.sideBar .sideBarCard .cardContent .circle2 {
+  height: 150px;
+  width: 150px;
+  bottom: -80px;
+  right: -70px;
+  z-index: 1;
+}
+
+@media screen and (max-width: 820px) {
+  .sideBar {
+    padding-bottom: 2rem;
+  }
+  .sideBar .logoDiv h2 {
+    display: none;
+  }
+  .sideBar .sideBarCard {
+    display: none !important;
+  }
+  .sideBar .menuDiv .divTittle,
+  .sideBar .menuDiv .smallText,
+  .sideBar .settingsDiv .divTittle,
+  .sideBar .settingsDiv .smallText {
+    font-size: 10px;
+  }
+}
+@media screen and (max-width: 745px) {
+  .sideBar .logoDiv {
+    text-align: center;
+    margin: auto;
+    padding: 1.5rem 0.5rem 0;
+  }
+  .sideBar .logoDiv img {
+    max-width: 500px;
+    margin: 0;
+    border-radius: 10px;
+    padding: 0.5rem;
+  }
+  .sideBar .logoDiv h2 {
+    display: none;
+  }
+  .sideBar .menuDiv .divTittle,
+  .sideBar .menuDiv .smallText,
+  .sideBar .settingsDiv .divTittle,
+  .sideBar .settingsDiv .smallText {
+    display: none;
+  }
+  .sideBar .menuDiv .menuLists .listItem .menuLink,
+  .sideBar .menuDiv .settingsDiv .listItem .menuLink,
+  .sideBar .settingsDiv .menuLists .listItem .menuLink,
+  .sideBar .settingsDiv .settingsDiv .listItem .menuLink {
+    justify-content: center;
+  }
+  .sideBar .menuDiv .menuLists .listItem .icon,
+  .sideBar .menuDiv .settingsDiv .listItem .icon,
+  .sideBar .settingsDiv .menuLists .listItem .icon,
+  .sideBar .settingsDiv .settingsDiv .listItem .icon {
+    font-size: var(--h1FontSize);
+  }
+}
+@media screen and (max-width: 390px) {
+  .sideBar .logoDiv {
+    text-align: center;
+    margin: auto;
+  }
+  .sideBar .logoDiv img {
+    max-width: 70px;
+    padding: 0;
+  }
+  .sideBar .menuDiv,
+  .sideBar .settingsDiv {
+    text-align: center;
+    margin: auto;
+  }
+  .sideBar .menuDiv .menuLists .listItem .menuLink,
+  .sideBar .settingsDiv .menuLists .listItem .menuLink {
+    justify-content: center;
+  }
+  .sideBar .menuDiv .menuLists .listItem .menuLink icon,
+  .sideBar .settingsDiv .menuLists .listItem .menuLink icon {
+    font-size: 50px;
+  }
+}/*# sourceMappingURL=sidebar.css.map */

@@ -1,0 +1,168 @@
+.line {
+  margin-top: 20px; /* Ajusta el margen superior según sea necesario */
+}
+
+.line::before {
+  content: '';
+  display: block;
+  width: calc(70% - 100px); /* Ajusta el ancho de la línea */
+  height: 2px; /* Grosor de la línea */
+  background-color: var(--primary-color); /* Color primario definido en las variables */
+  margin: 0 auto 20px; /* Margen inferior para separar del carrusel */
+}
+
+.product-carousel-section {
+  max-width: 90%;
+  margin: 2rem auto;
+  padding: 2rem;
+  text-align: center;
+  background: linear-gradient(145deg, #ffffff, #e6e6e6);
+  /* Soft background gradient */
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.product-item {
+  padding: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.product-item img {
+  max-width: 100%;
+  /* Image will be as wide as possible within the constraints */
+  max-height: 250px;
+  /* Sets a maximum height for all images */
+  object-fit: contain;
+  /* Ensures that the aspect ratio is preserved and the image is fully visible */
+  margin: auto;
+  margin-top: 5px;
+  /* Further ensures the image is centered within the slide */
+}
+
+.product-item:hover img {
+  transform: scale(1.05);
+  /* Slight zoom on hover */
+}
+
+.product-item h3 {
+  font-size: 1.5rem;
+  /* Increase the size if needed */
+  color: #000000;
+  /* A darker color for contrast */
+  font-weight: bold;
+  /* Make the title bold */
+  margin: 1rem 0 0.5rem;
+  /* Top margin for padding, and a smaller bottom margin */
+  padding-top: 10px;
+  /* Padding at the top to give space from the image */
+  transition: all 0.3s ease-in-out;
+  /* Smooth transition for hover effects */
+}
+
+/* Slick arrow styles */
+.slick-prev,
+.slick-next {
+  background: #000000;
+  /* Fondo blanco para contrastar con el color de la flecha */
+  border-radius: 50%;
+  /* Redondea el fondo para formar un círculo */
+  width: 40px;
+  /* Ancho del fondo */
+  height: 40px;
+  /* Altura del fondo */
+  display: flex;
+  /* Usa flexbox para centrar la flecha dentro del círculo */
+  align-items: center;
+  /* Centra verticalmente la flecha */
+  justify-content: center;
+  /* Centra horizontalmente la flecha */
+  /* Sombra suave para resaltar el botón */
+}
+
+.slick-prev {
+  left: -35px;
+  /* Ajusta la posición hacia la izquierda si es necesario */
+}
+
+.slick-next {
+  right: -35px;
+  /* Ajusta la posición hacia la derecha si es necesario */
+}
+
+/* Title styles */
+.product-carousel-section h2 {
+  font-size: 2.5rem;
+  color: #C13349;
+  /* Usa el color principal para destacar el título */
+  margin-bottom: 1rem;
+  /* Espacio después del título */
+  position: relative;
+}
+
+.product-carousel-section h2::after {
+  content: '';
+  width: 50px;
+  /* Ancho de la línea decorativa */
+  height: 4px;
+  /* Altura de la línea decorativa */
+  background-color: #C13349;
+  /* Color de la línea */
+  display: block;
+  /* Hace que la pseudo-elemento sea como un bloque */
+  margin: 10px auto 30px;
+  /* Centra la línea y añade espacio antes y después */
+}
+
+.carousel-button-container {
+  text-align: center;
+}
+
+.view-raffles-button {
+  padding: 10px 20px;
+  background-color: #C13349;
+  /* Primary color */
+  color: #fff;
+  /* Text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  /* Shadow for depth */
+}
+
+.view-raffles-button:hover {
+  background-color: #711924;
+  /* Darker shade for hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  /* Larger shadow on hover */
+}
+
+.view-raffles-button:focus {
+  outline: none;
+}
+
+/* Handle responsiveness */
+@media (max-width: 768px) {
+  .product-carousel-section {
+    padding: 1rem;
+  }
+
+  .slick-prev,
+  .slick-next {
+    font-size: 24px;
+    /* Smaller arrows on mobile */
+  }
+
+  .product-item img {
+    max-height: 200px;
+    /* Smaller images on mobile */
+  }
+
+  .product-carousel-section h2 {
+    font-size: 2rem;
+    /* Adjust title size for mobile */
+  }
+}

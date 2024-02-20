@@ -1,0 +1,139 @@
+.site-footer {
+    background-color: #333;
+    color: white;
+    padding: 40px 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 0px;
+}
+
+.footer-section {
+    margin: 20px;
+}
+
+.footer-section h4 {
+    color: #ddd;
+    margin-bottom: 15px;
+}
+
+
+
+.contact-list,
+.social-links {
+    list-style-type: none;
+    padding: 0;
+}
+
+.contact-list li {
+    margin-bottom: 8px;
+}
+
+.contact-list a {
+  text-decoration: none; /* Elimina el subrayado de los enlaces */
+  color: #3498db; /* Color del enlace */
+  transition: color 0.3s ease; /* Efecto suave al cambiar de color */
+}
+
+.contact-list a:hover,
+.contact-list a:focus {
+  color: #2980b9; /* Color del enlace al pasar el ratón o al enfocar */
+}
+
+
+.social-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    /* Make the icons larger */
+    margin: 0 10px;
+    /* Add space around icons */
+    display: inline-block;
+    /* Aligns icons better with the text */
+    transition: color 0.3s ease;
+    /* Smooth color transition for hover state */
+}
+
+.social-links a:hover {
+    color: #007BFF;
+    /* Change color when hovering over the icons */
+}
+
+.footer-bottom-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #444;
+    padding: 20px 0;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.footer-link {
+    color: #007BFF;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #0056b3;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (max-width: 600px) {
+    .footer-content {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .footer-section {
+      margin-bottom: 20px;
+    }
+  
+    .footer-bottom-container {
+      flex-direction: column;
+    }
+  
+    /* Adjustments for the content when in mobile view */
+    .banner-image img {
+      max-width: 80%; /* Adjust the image size for mobile devices */
+    }
+  
+    .banner-content, .banner-content h1, .banner-content h2, .banner-content p {
+      font-size: smaller; /* Adjust the font size for mobile readability */
+    }
+  }
+  
+  /* iPads (portrait and landscape) ----------- */
+  @media only screen and (min-device-width: 601px) and (max-device-width: 1024px) {
+    .footer-content {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .footer-section {
+      margin-bottom: 20px;
+    }
+  
+    .footer-bottom-container {
+      flex-direction: column;
+    }
+  
+    .banner-image img {
+      max-width: 90%; /* Adjust the image size for tablet devices */
+    }
+  
+    .banner-content, .banner-content h1, .banner-content h2, .banner-content p {
+      font-size: larger; /* Slightly larger font sizes for tablet readability */
+    }
+  }
+  

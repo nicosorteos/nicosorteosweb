@@ -1,0 +1,141 @@
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    color: #333;
+    padding: 50px 100px;
+    box-sizing: border-box;
+}
+
+.banner-image {
+    flex: 0 0 50%;
+    /* Assign a flex-basis of 50% and don't grow or shrink */
+    display: flex;
+    justify-content: center;
+    /* Center the image in its flex container */
+}
+
+.banner-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.banner-content {
+    flex: 1;
+    /* Allow content to fill the space */
+    padding-left: 50px;
+    text-align: left;
+}
+
+.wrap {
+    display: inline-block;
+    font-size: 4.5rem;
+    font-weight: 600;
+    color: #648540;
+}
+
+h1 {
+    font-size: 5rem;
+    font-weight: 700;
+    color: #000;
+    margin: 0.25em 0;
+}
+
+.banner-content h2 {
+    font-size: 3rem;
+    color: #C13349;
+    margin: 0.25em 0;
+}
+
+.banner-content p {
+    font-weight: 700;
+    margin-top: 1rem;
+    color: #C13349;
+    font-size: 1.25rem;
+}
+
+button {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    font-size: 1.25rem;
+    cursor: pointer;
+
+    color: white;
+    border: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+button:focus {
+    outline: none;
+}
+
+@media (max-width: 768px) {
+    .banner {
+        flex-direction: column;
+        justify-content: flex-start;
+        /* Align content to the top */
+        height: auto;
+        /* Adjust height for mobile */
+        padding: 20px;
+    }
+
+    .banner-image {
+        flex-basis: auto;
+        /* Reset flex-basis for mobile */
+        margin-bottom: 20px;
+        /* Add some margin between the image and the text */
+    }
+
+    .banner-image img {
+        max-width: 80%;
+        /* Increase size of the image for mobile */
+    }
+
+    .banner-content {
+        padding: 0;
+        /* Remove padding for mobile */
+        text-align: center;
+        /* Center text for mobile */
+    }
+
+    .wrap {
+        font-size: 3rem;
+        /* Adjust font size for mobile */
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        /* Adjust font size for mobile */
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        /* Adjust font size for mobile */
+    }
+
+    p {
+        font-size: 1rem;
+        /* Adjust font size for mobile */
+    }
+
+    button {
+        padding: 0.7rem 1.4rem;
+        /* Adjust button padding for mobile */
+        font-size: 1rem;
+        /* Adjust font size for button text on mobile */
+        border-radius: 25px;
+        /* Adjust border radius for mobile */
+    }
+}

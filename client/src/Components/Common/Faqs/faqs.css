@@ -1,0 +1,209 @@
+.faq-section {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 30px 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    /* Soft shadow for depth */
+    border-radius: 10px;
+    /* Rounded corners for modern look */
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    /* Primary color */
+    margin-bottom: 30px;
+}
+
+.faq-section h2{
+    text-align: center;
+    font-size: 2.5rem;
+    color: #C13349;
+    /* Usa el color principal para destacar el título */
+    margin-bottom: 1rem;
+    /* Espacio después del título */
+    position: relative;
+}
+
+.faq-section h2::after {
+    content: '';
+    width: 50px;
+    /* Ancho de la línea decorativa */
+    height: 4px;
+    /* Altura de la línea decorativa */
+    background-color: #C13349;
+    /* Color de la línea */
+    display: block;
+    /* Hace que la pseudo-elemento sea como un bloque */
+    margin: 10px auto 30px;
+    /* Centra la línea y añade espacio antes y después */
+}
+
+
+.faq-list {
+    list-style: none;
+    padding: 0;
+}
+
+.faq-item {
+    background: #f9f9f9;
+    margin-bottom: 10px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.faq-item.active {
+    background: #e9e9e9;
+}
+
+.faq-question {
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: #333;
+    position: relative;
+}
+
+.faq-toggle {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    position: relative;
+    background: white;
+    border-top: 1px solid #ddd;
+    padding: 0 20px;
+}
+
+.faq-answer p {
+    margin: 20px 0;
+    color: #666;
+    line-height: 1.5;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 1000px;
+    /* large enough to fit content */
+    padding: 20px;
+}
+
+/* Add a plus/minus icon from a font library or use a background-image if preferred */
+.faq-toggle::before {
+    content: "+";
+    color: #C13349;
+}
+
+.faq-item.active .faq-toggle::before {
+    content: "-";
+}
+
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.whatsapp-button,
+.facebook-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.whatsapp-button {
+    background-color: #25D366;
+    /* WhatsApp brand color */
+}
+
+.whatsapp-button:hover {
+    background-color: #128C7E;
+    /* Darker shade for hover effect */
+}
+
+.facebook-button {
+    background-color: #0084FF;
+    /* Messenger brand color */
+}
+
+.facebook-button:hover {
+    background-color: #0058AA;
+    /* Darker shade for hover effect */
+}
+
+/* Icon styles */
+.whatsapp-button svg,
+.facebook-button svg {
+    margin-right: 8px;
+}
+
+.contact-invitation {
+    text-align: center;
+    margin-top: 40px;
+    color: #333;
+    /* Dark color for better visibility on white background */
+}
+
+.contact-invitation h3 {
+    font-size: 2.5rem;
+    color: #C13349;
+    /* Usa el color principal para destacar el título */
+    margin-bottom: 1rem;
+    /* Espacio después del título */
+    position: relative;
+}
+
+.contact-invitation h3::after {
+    content: '';
+    width: 50px;
+    /* Ancho de la línea decorativa */
+    height: 4px;
+    /* Altura de la línea decorativa */
+    background-color: #C13349;
+    /* Color de la línea */
+    display: block;
+    /* Hace que la pseudo-elemento sea como un bloque */
+    margin: 10px auto 30px;
+    /* Centra la línea y añade espacio antes y después */
+}
+
+.contact-invitation p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+
+@media (max-width: 768px) {
+    .faq-question {
+        font-size: 1rem;
+    }
+
+    .faq-answer p {
+        font-size: 0.9rem;
+    }
+
+
+    .contact-buttons {
+        flex-direction: column;
+    }
+
+    .whatsapp-button,
+    .facebook-button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+}

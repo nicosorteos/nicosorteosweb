@@ -1,0 +1,139 @@
+:root {
+  --PrimaryColor: hsl(353, 60%, 46%);
+  --HoverColor: #ff7a8a;
+  --paleGreen: hsl(0, 50%, 85%);
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(0, 0%, 18%);
+  --textColor: hsl(240, 1%, 48%);
+  --bgColor: hsl(220, 10%, 94%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: hsl(330, 12%, 97%);
+  --itemCardColor: hsl(120, 5%, 88%);
+  --itemCardHover: hsl(0, 63%, 68%);
+}
+
+.navbar {
+  padding: 0.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: hsl(353, 60%, 46%);
+  /* Utiliza los colores primarios para el gradiente */
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  /* Sombra sutil para dar un efecto elevado */
+  color: var(--whiteColor);
+  /* Texto en blanco para contraste */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  /* Sombra de texto para mejorar el contraste */
+  z-index: 1000;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo img {
+  height: 80px;
+  width: auto;
+  transition: height 0.2s ease-in-out;
+}
+
+.navbar-brand {
+  font-family: 'Roboto', sans-serif;
+  font-size: 2.5rem;
+  /* Ajusta el tamaño de la fuente según sea necesario */
+  color: #ecf0f1;
+  /* El color del texto */
+  margin-left: 1rem;
+  /* Espacio entre el logo y el texto */
+}
+
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: #ecf0f1;
+  padding: 0 1rem;
+  font-family: "Montserrat", sans-serif;
+  position: relative;
+  /* Posición relativa para poder posicionar la línea absolutamente */
+  font-size: 1.25rem;
+  /* Tamaño de fuente aumentado para los enlaces */
+  transition: color 0.3s ease-in-out;
+  z-index: 1001;
+}
+
+.navbar-links a::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  /* Ajusta la posición de la línea debajo del texto */
+  height: 2px;
+  /* Altura de la línea */
+  width: 0;
+  /* La línea estará inicialmente oculta */
+  background-color: #C13349;
+  /* Color de la línea */
+  transition: width 0.3s ease-in-out;
+  /* Transición suave para la aparición de la línea */
+  z-index: 1002; 
+}
+
+.navbar-links a:hover::after,
+.navbar-links a.active::after {
+  width: 100%;
+  /* La línea se expande al 100% del ancho del texto al pasar el ratón */
+}
+
+@media (max-width: 768px) {
+
+  .navbar {
+    padding: 0.5rem 1rem;
+    /* Menos relleno para pantallas más pequeñas */
+  }
+
+  .navbar-logo img {
+    height: 60px;
+    /* Ajusta el tamaño del logo para móviles si es necesario */
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar-brand {
+    font-size: 1.5rem;
+    /* Tamaño de la fuente ajustado para móviles */
+    margin-left: 10px;
+    /* Ajusta este valor para mover el texto un poco a la derecha */
+  }
+
+  .navbar-links {
+    position: absolute;
+    right: 0;
+    top: 60px;
+    background-color: #C13349;
+    /* Color de fondo para los enlaces en móviles actualizado */
+    flex-direction: column;
+    width: 100%;
+    display: none;
+    z-index: 1003; 
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .navbar-links a {
+    padding: 1rem;
+    border-bottom: 1px solid #7f8c8d;
+    /* Añade una delgada línea para separar los elementos */
+  }
+}

@@ -1,0 +1,100 @@
+/* nosotros.css */
+
+:root {
+    --primary-color: #C13349; /* Un azul oscuro para transmitir confianza */
+    --secondary-color: #3498db; /* Un azul claro para detalles */
+    --text-color: #2c3e50; /* Color de texto que coincide con el color primario */
+    --background-color: #ecf0f1; /* Un fondo claro y limpio */
+  }
+  
+  .about-us {
+    color: var(--text-color);
+    padding: 4rem 2rem; /* Espacio amplio para respirar */
+    text-align: center; /* Centra el texto para un diseño limpio */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente moderna y legible */
+    margin-bottom: 2rem; /* Espacio debajo de la sección */
+    position: relative; /* Posición relativa para alinear los seudoelementos */
+  }
+  
+  .about-us::before,
+  .about-us::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background-color: var(--primary-color); /* Color primario definido en las variables */
+  }
+  
+  .about-us::before {
+    top: 0;
+  }
+  
+  .about-us::after {
+    bottom: 0;
+  }
+  
+  .about-us h2 {
+    font-size: 2.5rem; /* Título grande y legible */
+    color: var(--primary-color);
+    margin-bottom: 1rem; /* Espacio debajo del título */
+  }
+
+  .about-us h2::after {
+    content: '';
+    width: 50px;
+    /* Ancho de la línea decorativa */
+    height: 4px;
+    /* Altura de la línea decorativa */
+    background-color: #C13349;
+    /* Color de la línea */
+    display: block;
+    /* Hace que la pseudo-elemento sea como un bloque */
+    margin: 10px auto 30px;
+    /* Centra la línea y añade espacio antes y después */
+  }
+  
+  
+  .about-us p {
+    font-size: 1rem; /* Tamaño de fuente cómodo para leer */
+    line-height: 1.6; /* Espacio vertical para una lectura más fácil */
+    margin-bottom: 1.5rem; /* Espacio debajo de cada párrafo */
+  }
+  
+  .container {
+    max-width: 1200px; /* Ancho máximo para el contenido */
+    margin: 0 auto; /* Centra el contenedor */
+    padding: 0 2rem; /* Padding a los lados para evitar que el texto toque los bordes de la pantalla */
+  }
+  
+  .team-photos {
+    display: flex; /* Usa flexbox para alinear las fotos del equipo */
+    justify-content: center; /* Centra las fotos del equipo */
+    gap: 2rem; /* Espacio entre las fotos del equipo */
+    margin-top: 2rem; /* Espacio arriba de las fotos del equipo */
+  }
+  
+  .team-photos div {
+    width: 150px; /* Tamaño específico para las fotos */
+    height: 150px; /* Tamaño específico para las fotos */
+    background-color: var(--secondary-color);
+    border-radius: 50%; /* Hace que los divs sean círculos */
+    /* Agregar estilos para imágenes si es necesario */
+  }
+  
+  /* Media Queries para ajustar en dispositivos más pequeños */
+  @media (max-width: 768px) {
+    .about-us h2 {
+      font-size: 2rem; /* Un poco más pequeño para pantallas más pequeñas */
+    }
+  
+    .team-photos {
+      flex-direction: column; /* Apila las fotos verticalmente en pantallas pequeñas */
+    }
+  
+    .team-photos div {
+      margin-bottom: 1rem; /* Espacio debajo de cada foto */
+    }
+  }
+  

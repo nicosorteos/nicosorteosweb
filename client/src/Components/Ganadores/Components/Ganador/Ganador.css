@@ -1,0 +1,145 @@
+.sorteos-disponibles {
+    padding: 20px;
+    text-align: center;
+}
+
+
+/* Estilos para cada sorteo dentro del carrusel */
+.product-item {
+    background-color: #f8f8f8; /* Fondo de cada item */
+    padding: 10px; /* Reducir el relleno para disminuir la altura */
+    border-radius: 10px; /* Bordes redondeados */
+    text-align: center; /* Centrado del texto */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra ligera */
+    margin-bottom: 20px; /* Asegúrate de tener un margen para separar entre elementos */
+    overflow: hidden; /* Oculta cualquier contenido que se desborde de la tarjeta */
+}
+
+.sorteos-disponibles h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #C13349;
+    /* Usa el color principal para destacar el título */
+    margin-bottom: 1rem;
+    /* Espacio después del título */
+    position: relative;
+}
+
+.sorteos-disponibles h2::after {
+    content: '';
+    width: 50px;
+    /* Ancho de la línea decorativa */
+    height: 4px;
+    /* Altura de la línea decorativa */
+    background-color: #C13349;
+    /* Color de la línea */
+    display: block;
+    /* Hace que la pseudo-elemento sea como un bloque */
+    margin: 10px auto 30px;
+    /* Centra la línea y añade espacio antes y después */
+}
+
+.fecha-creacion,
+.boleto-ganador {
+  color: #555;
+  margin: 0.5rem 0;
+  font-size: 1rem;
+
+}
+
+.product-item img {
+    max-width: 100%;
+    /* Imagen responsive */
+    height: auto;
+    margin-bottom: 15px;
+    /* Espaciado debajo de la imagen */
+}
+
+.product-item h3 {
+    margin-bottom: 5px;
+    /* Espaciado debajo del título */
+    font-size: 2rem; /* Ajustar el tamaño del título si es necesario */
+
+}
+
+.product-item p {
+    margin-bottom: 15px;
+    /* Espaciado debajo de la descripción */
+}
+
+.product-item button {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 10px 20px;
+    background-color: #C13349;
+    /* Primary color */
+    color: #fff;
+    /* Text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    /* Shadow for depth */
+}
+
+.product-item button:hover {
+    background-color: #711924;
+    /* Darker shade for hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    /* Larger shadow on hover */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+
+    .slick-prev,
+    .slick-next {
+        /* Asegúrate de que las flechas no se superpongan demasiado con el contenido en pantallas pequeñas */
+        width: 20px;
+        height: 20px;
+        left: 5px;
+        /* Ajustar para el botón previo */
+        right: 5px;
+        /* Ajustar para el botón siguiente */
+    }
+
+    .product-item {
+        /* Ajustar el padding y otros espacios para una mejor visualización en móviles */
+        padding: 10px;
+    }
+
+    .product-item img {
+        /* Si la imagen es muy grande en móviles, puedes reducir su tamaño */
+        max-height: 90px;
+        /* Ajustar según sea necesario */
+    }
+
+    .product-item button {
+        /* Ajustar el tamaño del botón para que sea más accesible en pantallas táctiles */
+        padding: 8px 16px;
+        font-size: 14px;
+        /* Ajustar el tamaño de la fuente si es necesario */
+    }
+
+    /* Si el título es muy grande, puedes reducir su tamaño */
+    .sorteos-disponibles h2 {
+        font-size: 1.8rem;
+        /* Ajustar según sea necesario */
+    }
+
+}
