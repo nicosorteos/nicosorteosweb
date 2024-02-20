@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Modal.scss";
+import "./modal.scss";
 import axios from "axios";
 
 const ModalUpdate = ({ isOpen, onClose, editId }) => {
