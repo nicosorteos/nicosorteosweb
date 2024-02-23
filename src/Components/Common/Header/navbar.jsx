@@ -27,9 +27,6 @@ const Navbar = () => {
         <NavLink to="/ganadores" activeClassName="active" onClick={() => setIsNavExpanded(false)}>
           Ganadores
         </NavLink>
-        <NavLink to="/login-admin-panel" activeClassName="active" onClick={() => setIsNavExpanded(false)}>
-          Login
-        </NavLink>
       </div>
     </nav>
   );
