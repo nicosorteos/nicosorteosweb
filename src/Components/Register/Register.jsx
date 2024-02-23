@@ -26,7 +26,7 @@ const [password, setPassword] = useState('')
 //Onclik to obtain what the user enter
 
 const createUser = ()=>{
-  axios.post('http://localhost:3002/register',{
+  axios.post('https://nicosorteos-8b36160039d0.herokuapp.com/register',{
     Email: email,
     UserName: username,
     Password: password

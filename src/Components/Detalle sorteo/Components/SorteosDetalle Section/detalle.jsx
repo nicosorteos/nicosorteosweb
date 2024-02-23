@@ -26,7 +26,7 @@ const SorteoDetalle = ({ handleMessage }) => {
   useEffect(() => {
     // Realizar la solicitud GET para obtener los boletos
     axios
-      .get(`http://localhost:3002/listado-boletos/${idSorteo}`)
+      .get(`https://nicosorteos-8b36160039d0.herokuapp.com/listado-boletos/${idSorteo}`)
       .then((response) => {
         console.log(response.data);
         setBoletos(response.data);
@@ -38,7 +38,7 @@ const SorteoDetalle = ({ handleMessage }) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3002/sorteos/${idSorteo}`)
+      .get(`https://nicosorteos-8b36160039d0.herokuapp.com/sorteos/${idSorteo}`)
       .then((res) => {
         setSorteo(res.data);
       })
@@ -63,7 +63,7 @@ const SorteoDetalle = ({ handleMessage }) => {
     selectedNumbers.forEach(async (num_boleto) => {
       try {
         // Realiza una solicitud POST al servidor para apartar el boleto
-        await axios.post("http://localhost:3002/apartar-boletos", {
+        await axios.post("https://nicosorteos-8b36160039d0.herokuapp.com/apartar-boletos", {
           id_concurso: idSorteo, // Id del sorteo obtenido de los parámetros de la URL
           num_boleto: num_boleto, // Número de boleto actual del bucle
         });
@@ -129,7 +129,7 @@ const SorteoDetalle = ({ handleMessage }) => {
             <br />
             <br />
             <img
-              src={`http://localhost:3002/uploads${sorteo.imagen}`}
+              src={`https://nicosorteos-8b36160039d0.herokuapp.com/uploads${sorteo.imagen}`}
               alt={sorteo.nombre}
             />
           </div>

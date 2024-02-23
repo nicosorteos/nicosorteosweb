@@ -21,7 +21,7 @@ function ModalEstado({ boleto, handleClose, handleMessage }) {
   useEffect(() => {
     // Obtener información del boleto al cargar el componente
     axios
-      .get(`http://localhost:3002/boletoinfo/${boleto}`)
+      .get(`https://nicosorteos-8b36160039d0.herokuapp.com/boletoinfo/${boleto}`)
       .then((res) => {
         const { nombre_concurso, num_boleto } = res.data;
         setNombreSorteo(nombre_concurso);
@@ -35,7 +35,7 @@ function ModalEstado({ boleto, handleClose, handleMessage }) {
 
     if (selectedOption === "1") {
       axios
-        .delete(`http://localhost:3002/boleto-liberar/${boleto}`)
+        .delete(`https://nicosorteos-8b36160039d0.herokuapp.com/boleto-liberar/${boleto}`)
         .then((res) => {
           handleMessage("¡El boleto ha sido liberado exitosamente!");
           localStorage.setItem(
@@ -50,7 +50,7 @@ function ModalEstado({ boleto, handleClose, handleMessage }) {
         .catch((err) => console.log(err));
     } else if (selectedOption === "3") {
       axios
-        .put(`http://localhost:3002/boleto-vendido/${boleto}`, {
+        .put(`https://nicosorteos-8b36160039d0.herokuapp.com/boleto-vendido/${boleto}`, {
           comprador: comprador,
         })
         .then((res) => {

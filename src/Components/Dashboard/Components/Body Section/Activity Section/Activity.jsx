@@ -14,7 +14,7 @@ const Activity = () => {
   useEffect(() => {
     // Llamar a la ruta para obtener los últimos 4 boletos apartados
     axios
-      .get("http://localhost:3002/ultimos-boletos-apartados")
+      .get("https://nicosorteos-8b36160039d0.herokuapp.com/ultimos-boletos-apartados")
       .then((response) => {
         setActividadReciente(response.data);
       })

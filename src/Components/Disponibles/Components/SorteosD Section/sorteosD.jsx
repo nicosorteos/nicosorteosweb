@@ -9,7 +9,7 @@ const SorteosDisponibles = ({ handleMessage }) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3002/sorteos")
+      .get("https://nicosorteos-8b36160039d0.herokuapp.com/sorteos")
       .then((res) => {
         const sorteosActivos = res.data.filter(sorteo => sorteo.estatus === 1);
         setSorteos(sorteosActivos);
@@ -30,7 +30,7 @@ const SorteosDisponibles = ({ handleMessage }) => {
       <div className="sorteos-grid">
         {sorteos.map((sorteo, index) => (
           <div key={sorteo.idconcursos} className={`sorteo-item${index % 3 === 2 ? ' last-in-row' : ''}`}>
-            <img src={`http://localhost:3002/uploads${sorteo.imagen}`} alt={sorteo.nombre} />
+            <img src={`https://nicosorteos-8b36160039d0.herokuapp.com/uploads${sorteo.imagen}`} alt={sorteo.nombre} />
             <h3>{sorteo.nombre}</h3>
             <button onClick={() => handleParticiparClick(sorteo.idconcursos)}>Participar</button>
           </div>

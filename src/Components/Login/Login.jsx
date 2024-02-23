@@ -27,7 +27,7 @@ export const Login = ({ setIsAuthenticated }) => {
   const loginUser = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3002/login", {
+      .post("https://nicosorteos-8b36160039d0.herokuapp.com/login", {
         LoginUserName: loginUserName,
         LoginPassword: loginPassword,
       })

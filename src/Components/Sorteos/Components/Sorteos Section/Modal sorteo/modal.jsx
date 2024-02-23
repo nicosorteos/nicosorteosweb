@@ -20,7 +20,7 @@ const Modal = ({ isOpen, onClose }) => {
     }
 
     axios
-      .post("http://localhost:3002/create", {
+      .post("https://nicosorteos-8b36160039d0.herokuapp.com/create", {
         Nombre: nombre,
         Descripcion: descripcion,
         Estado: 1,

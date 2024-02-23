@@ -12,7 +12,7 @@ function SorteosList({ handleMessage }) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3002/sorteos")
+      .get("https://nicosorteos-8b36160039d0.herokuapp.com/sorteos")
       .then((res) => setSorteo(res.data))
       .catch((err) => console.log(err));
   }, []);
@@ -30,7 +30,7 @@ function SorteosList({ handleMessage }) {
 
     if (confirmDelete) {
       try {
-        await axios.delete(`http://localhost:3002/eliminarsorteo/${id}`);
+        await axios.delete(`https://nicosorteos-8b36160039d0.herokuapp.com/eliminarsorteo/${id}`);
         handleMessage("Sorteo eliminado correctamente!");
         window.location.reload(true);
       } catch (error) {
@@ -48,7 +48,7 @@ function SorteosList({ handleMessage }) {
   
       if (ganador !== null) { // Comprueba si el usuario ingresó un nombre
         try {
-          await axios.put(`http://localhost:3002/sorteos/${id}/actualizar-estado`, { ganador });
+          await axios.put(`https://nicosorteos-8b36160039d0.herokuapp.com/sorteos/${id}/actualizar-estado`, { ganador });
           handleMessage("Sorteo cerrado correctamente!");
           window.location.reload(true);
         } catch (error) {
@@ -80,7 +80,7 @@ function SorteosList({ handleMessage }) {
               <td>{data.nombre}</td>
               <td>
                 <img
-                  src={`http://localhost:3002/uploads${data.imagen}`}
+                  src={`https://nicosorteos-8b36160039d0.herokuapp.com/uploads${data.imagen}`}
                   alt="Imagen del sorteo"
                   style={{ maxWidth: "100px" }}
                 />

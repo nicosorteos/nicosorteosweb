@@ -17,7 +17,7 @@ export const Listing = () => {
   useEffect(() => {
     // Obtener los sorteos más recientes
     axios
-      .get("http://localhost:3002/sorteos-recientes")
+      .get("https://nicosorteos-8b36160039d0.herokuapp.com/sorteos-recientes")
       .then((response) => {
         setSorteos(response.data);
       })
@@ -27,7 +27,7 @@ export const Listing = () => {
 
     // Obtener el concurso más vendido
     axios
-      .get("http://localhost:3002/concurso-mas-vendidos")
+      .get("https://nicosorteos-8b36160039d0.herokuapp.com/concurso-mas-vendidos")
       .then((response) => {
         setConcursoMasVendido(response.data);
       })
@@ -37,7 +37,7 @@ export const Listing = () => {
 
     // Obtener el concurso más reciente
     axios
-      .get("http://localhost:3002/concurso-mas-reciente")
+      .get("https://nicosorteos-8b36160039d0.herokuapp.com/concurso-mas-reciente")
       .then((response) => {
         setConcursoMasReciente(response.data);
       })
@@ -61,7 +61,7 @@ export const Listing = () => {
         {sorteos.map((sorteo, index) => (
           <div className="singleItem" key={index}>
             <img
-              src={`http://localhost:3002/uploads${sorteo.imagen}`}
+              src={`https://nicosorteos-8b36160039d0.herokuapp.com/uploads${sorteo.imagen}`}
               alt="Imagen del sorteo"
               style={{ maxWidth: "100px" }}
             />
@@ -80,7 +80,7 @@ export const Listing = () => {
             <div className="card flex">
               <div className="users">
                 <img
-                  src={`http://localhost:3002/uploads${concursoMasVendido.imagen}`}
+                  src={`https://nicosorteos-8b36160039d0.herokuapp.com/uploads${concursoMasVendido.imagen}`}
                   alt="Imagen del concurso más vendido"
                 />
               </div>
@@ -107,7 +107,7 @@ export const Listing = () => {
             <div className="card flex">
               <div className="users">
                 <img
-                  src={`http://localhost:3002/uploads${concursoMasReciente.imagen}`}
+                  src={`https://nicosorteos-8b36160039d0.herokuapp.com/uploads${concursoMasReciente.imagen}`}
                   alt="Imagen del concurso más reciente"
                 />
               </div>

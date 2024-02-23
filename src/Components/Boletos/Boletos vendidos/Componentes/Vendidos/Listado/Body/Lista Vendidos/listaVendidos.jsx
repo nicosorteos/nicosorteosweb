@@ -10,7 +10,7 @@ function ListaVendidos({ id }) {
 
     // Realizar la llamada a la ruta para obtener los boletos
     axios
-      .get(`http://localhost:3002/boletos-vendidos/${idSorteo}`)
+      .get(`https://nicosorteos-8b36160039d0.herokuapp.com/boletos-vendidos/${idSorteo}`)
       .then((res) => setBoletos(res.data))
       .catch((err) => console.log(err));
   }, []);

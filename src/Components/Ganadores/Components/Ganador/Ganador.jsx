@@ -9,7 +9,7 @@ const Ganador = ({ handleMessage }) => {
 
   //aqui filtras por estado del sorteo en este caso 1 y estado del boleto, en este caso 1
   useEffect(() => {
-    axios.get("http://localhost:3002/sorteos")
+    axios.get("https://nicosorteos-8b36160039d0.herokuapp.com/sorteos")
       .then((res) => {
         const sorteosConEstadoCuatro = res.data
           .filter(sorteo => sorteo.estatus === 4)
@@ -40,7 +40,7 @@ const Ganador = ({ handleMessage }) => {
       <div className="lista-sorteos">
         {sorteos.map((sorteo) => (
           <div key={sorteo.idconcursos} className="product-item">
-            <img src={`http://localhost:3002/uploads${sorteo.imagen}`} alt={sorteo.nombre} />
+            <img src={`https://nicosorteos-8b36160039d0.herokuapp.com/uploads${sorteo.imagen}`} alt={sorteo.nombre} />
             <h3>{sorteo.nombre}</h3>
             <p className="fecha-creacion">Fecha del sorteo: <strong>{new Date(sorteo.fecha_creacion).toLocaleDateString()}</strong></p>
             <p className="boleto-ganador">Boleto ganador: <strong>{sorteo.boletoGanador || 'No disponible'}</strong></p>

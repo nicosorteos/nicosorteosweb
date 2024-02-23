@@ -11,12 +11,12 @@ const ModalUpdate = ({ isOpen, onClose, editId }) => {
   useEffect(() => {
     if (isOpen && editId) {
       axios
-        .get(`http://localhost:3002/sorteos/${editId}`)
+        .get(`https://nicosorteos-8b36160039d0.herokuapp.com/sorteos/${editId}`)
         .then((res) => {
           const sorteo = res.data;
           setNombre(sorteo.nombre);
           setDescripcion(sorteo.descripcion);
-          setImagenActual(`http://localhost:3002/uploads${sorteo.imagen}`);
+          setImagenActual(`https://nicosorteos-8b36160039d0.herokuapp.com/uploads${sorteo.imagen}`);
         })
         .catch((err) => console.log(err));
     }
@@ -27,7 +27,7 @@ const ModalUpdate = ({ isOpen, onClose, editId }) => {
 
     axios
       .put(
-        `http://localhost:3002/update/${editId}`,
+        `https://nicosorteos-8b36160039d0.herokuapp.com/update/${editId}`,
         {
           Nombre: nombre,
           Descripcion: descripcion,

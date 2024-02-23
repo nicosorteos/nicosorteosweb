@@ -22,7 +22,7 @@ const Top = () => {
   useEffect(() => {
     // Obtener la cantidad de boletos vendidos hoy y en todo el mes
     axios
-      .get("http://localhost:3002/boletos-vendidos-estadistica")
+      .get("https://nicosorteos-8b36160039d0.herokuapp.com/boletos-vendidos-estadistica")
       .then((response) => {
         setBoletosVendidosHoy(response.data.boletos_vendidos_hoy);
         setBoletosVendidosMes(response.data.boletos_vendidos_mes);

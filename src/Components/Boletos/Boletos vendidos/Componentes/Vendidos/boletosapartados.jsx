@@ -11,7 +11,7 @@ function ApartadosList({ handleMessage }) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3002/sorteos-boletos")
+      .get("https://nicosorteos-8b36160039d0.herokuapp.com/sorteos-boletos")
       .then((res) => setSorteo(res.data))
       .catch((err) => console.log(err));
   }, []);
