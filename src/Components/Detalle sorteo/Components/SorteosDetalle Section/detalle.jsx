@@ -26,7 +26,7 @@ const SorteoDetalle = ({ handleMessage }) => {
   useEffect(() => {
     // Realizar la solicitud GET para obtener los boletos
     axios
-      .get(`https://nicosorteos-8b36160039d0.herokuapp.com/listado-boletos/${idSorteo}`)
+      .get(`http://localhost:3002/listado-boletos/${idSorteo}`)
       .then((response) => {
         console.log(response.data);
         setBoletos(response.data);
@@ -38,7 +38,7 @@ const SorteoDetalle = ({ handleMessage }) => {
 
   useEffect(() => {
     axios
-      .get(`https://nicosorteos-8b36160039d0.herokuapp.com/sorteos/${idSorteo}`)
+      .get(`http://localhost:3002/sorteos/${idSorteo}`)
       .then((res) => {
         setSorteo(res.data);
       })
@@ -56,6 +56,27 @@ const SorteoDetalle = ({ handleMessage }) => {
     setIsModalOpen(false);
   };
 
+
+  // Función para generar un número de boleto aleatorio y disponible
+  const elegirBoletoAleatorio = () => {
+    let boletoElegido;
+    let intentos = 0;
+    // Intenta encontrar un boleto aleatorio disponible hasta 1000 veces
+    while (!boletoElegido && intentos < 1000) {
+      const numeroAleatorio = Math.floor(Math.random() * 60000) + 1;
+      if (!boletos.find(boleto => boleto.num_boleto === numeroAleatorio && boleto.estado !== 1)) {
+        boletoElegido = numeroAleatorio;
+      }
+      intentos++;
+    }
+    if (boletoElegido) {
+      setSelectedNumbers([...selectedNumbers, boletoElegido]);
+    } else {
+      alert("No se pudo encontrar un boleto aleatorio después de 1000 intentos.");
+    }
+  };
+
+
   // Maneja el envío del formulario y prepara el mensaje de WhatsApp
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -63,7 +84,7 @@ const SorteoDetalle = ({ handleMessage }) => {
     selectedNumbers.forEach(async (num_boleto) => {
       try {
         // Realiza una solicitud POST al servidor para apartar el boleto
-        await axios.post("https://nicosorteos-8b36160039d0.herokuapp.com/apartar-boletos", {
+        await axios.post("http://localhost:3002/apartar-boletos", {
           id_concurso: idSorteo, // Id del sorteo obtenido de los parámetros de la URL
           num_boleto: num_boleto, // Número de boleto actual del bucle
         });
@@ -129,7 +150,7 @@ const SorteoDetalle = ({ handleMessage }) => {
             <br />
             <br />
             <img
-              src={`https://nicosorteos-8b36160039d0.herokuapp.com/uploads${sorteo.imagen}`}
+              src={`http://localhost:3002/uploads${sorteo.imagen}`}
               alt={sorteo.nombre}
             />
           </div>
@@ -148,6 +169,8 @@ const SorteoDetalle = ({ handleMessage }) => {
 
         <div className="titulo-boletos">
           <h4>Elige tus boletos de la suerte:</h4>
+          {/* Botón para elegir un boleto aleatorio */}
+          <button onClick={elegirBoletoAleatorio}>Máquina de la suerte</button>
           {selectedNumbers.length > 0 && (
             <p>
               <span className="bold-text">Números seleccionados:</span>{" "}
