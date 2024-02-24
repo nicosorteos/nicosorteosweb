@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./modal.scss";
+import "./Modal.scss";
 import axios from "axios";
 
 const ModalUpdate = ({ isOpen, onClose, editId }) => {
@@ -16,37 +16,60 @@ const ModalUpdate = ({ isOpen, onClose, editId }) => {
           const sorteo = res.data;
           setNombre(sorteo.nombre);
           setDescripcion(sorteo.descripcion);
-          setImagenActual(`https://nicosorteos-8b36160039d0.herokuapp.com/uploads${sorteo.imagen}`);
+          setImagenActual(sorteo.imagen);
         })
         .catch((err) => console.log(err));
     }
   }, [isOpen, editId]);
 
-  function Update(event) {
+  async function Update(event) {
     event.preventDefault();
 
-    axios
-      .put(
-        `https://nicosorteos-8b36160039d0.herokuapp.com/update/${editId}`,
-        {
-          Nombre: nombre,
-          Descripcion: descripcion,
-          Imagen: imagen,
+    try {
+      const formData = new FormData();
+      formData.append("file", imagen);
+      formData.append("upload_preset", "o7yefmcq");
+      let imagenUrl = await uploadImage(formData);
+
+      await updateConcurso(editId, nombre, descripcion, imagenUrl);
+
+      console.log("Sorteo actualizado exitosamente");
+      onClose();
+    } catch (error) {
+      console.error("Error al actualizar el sorteo:", error);
+    }
+  }
+
+  async function uploadImage(formData) {
+    try {
+      const response = await axios.post(
+        "https://api.cloudinary.com/v1_1/dqf4je6lh/image/upload",
+        formData
+      );
+
+      return response.data.secure_url;
+    } catch (error) {
+      throw new Error("Error al subir la imagen a Cloudinary", error);
+    }
+  }
+
+  async function updateConcurso(id, nombre, descripcion, imagenUrl) {
+    
+    try {
+      const updatedData = {
+        Nombre: nombre,
+        Descripcion: descripcion,
+        Imagen: imagenUrl,
+      };
+      console.log(updatedData);
+      await axios.put(`https://nicosorteos-8b36160039d0.herokuapp.com/update/${id}`, updatedData, {
+        headers: {
+          "Content-Type": "application/json",
         },
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      )
-      .then(() => {
-        console.log("Sorteo actualizado exitosamente");
-        onClose(); // Cierra el modal después de enviar el formulario
-        window.location.reload(true); // Recarga la página
-      })
-      .catch((error) => {
-        console.error("Error al actualizar el sorteo:", error);
       });
+    } catch (error) {
+      throw new Error("Error al actualizar el concurso en el servidor");
+    }
   }
 
   function handleOverlayClick(event) {
@@ -98,7 +121,11 @@ const ModalUpdate = ({ isOpen, onClose, editId }) => {
             <div className="inputDiv">
               <label htmlFor="password">Imagen actual</label>
               <div className="flex">
-                <img src={imagenActual} alt="Imagen actual del sorteo"  style={{ maxWidth: "180px" }} />
+                <img
+                  src={imagenActual}
+                  alt="Imagen actual del sorteo"
+                  style={{ maxWidth: "180px" }}
+                />
               </div>
             </div>
             <div className="inputDiv">

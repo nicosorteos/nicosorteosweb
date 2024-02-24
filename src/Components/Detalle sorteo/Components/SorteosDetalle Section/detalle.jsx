@@ -129,7 +129,7 @@ const SorteoDetalle = ({ handleMessage }) => {
             <br />
             <br />
             <img
-              src={`https://nicosorteos-8b36160039d0.herokuapp.com/uploads${sorteo.imagen}`}
+              src={sorteo.imagen}
               alt={sorteo.nombre}
             />
           </div>

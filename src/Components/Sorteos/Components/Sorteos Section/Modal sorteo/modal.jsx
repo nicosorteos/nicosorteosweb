@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./modal.scss";
 import axios from "axios";
 
 const Modal = ({ isOpen, onClose }) => {
@@ -8,40 +7,62 @@ const Modal = ({ isOpen, onClose }) => {
   const [nombre, setNombre] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [imagen, setImagen] = useState(null);
-  const [errorMessage, setErrorMessage] = useState(""); // Estado para almacenar el mensaje de error
+  const [errorMessage, setErrorMessage] = useState("");
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
 
-    // Verificar si todos los campos están llenos
     if (!nombre || !descripcion || !imagen) {
       setErrorMessage("Todos los campos son obligatorios");
       return;
     }
 
-    axios
-      .post("https://nicosorteos-8b36160039d0.herokuapp.com/create", {
+    try {
+      const formData = new FormData();
+      formData.append("file", imagen);
+      formData.append("upload_preset", "o7yefmcq");
+
+      const secureUrl = await uploadImage(formData);
+
+      const concursoData = {
         Nombre: nombre,
         Descripcion: descripcion,
         Estado: 1,
-        Imagen: imagen,
-      }, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      })
-      .then(() => {
-        console.log("Sorteo creado exitosamente");
-        onClose(); // Cierra el modal después de enviar el formulario
-        window.location.reload(true);
-      })
-      .catch((error) => {
-        console.error("Error al crear el sorteo:", error);
-      });
+        url: secureUrl
+      };
+
+      await createConcurso(concursoData);
+
+      console.log("Sorteo creado exitosamente");
+      onClose();
+    } catch (error) {
+      console.error("Error al crear el sorteo:", error);
+      setErrorMessage("Error al crear el sorteo");
+    }
+  }
+
+  async function uploadImage(formData) {
+    try {
+      const response = await axios.post(
+        "https://api.cloudinary.com/v1_1/dqf4je6lh/image/upload",
+        formData
+      );
+
+      return response.data.secure_url;
+    } catch (error) {
+      throw new Error("Error al subir la imagen a Cloudinary",error);
+    }
+  }
+
+  async function createConcurso(concursoData) {
+    try {
+      await axios.post("https://nicosorteos-8b36160039d0.herokuapp.com/create", concursoData);
+    } catch (error) {
+      throw new Error("Error al crear el concurso en el servidor");
+    }
   }
 
   function handleOverlayClick(event) {
-    // Evitar que el modal se cierre si se hace clic dentro del modal
     event.stopPropagation();
   }
 
@@ -63,7 +84,7 @@ const Modal = ({ isOpen, onClose }) => {
             className="form grid"
             encType="multipart/form-data"
           >
-            <input type="hidden" id="estado" value={1}></input>
+            <input type="hidden" id="estado" value={1} />
             <div className="inputDiv">
               <label htmlFor="username">Nombre del Sorteo</label>
               <div className="input flex">
@@ -92,20 +113,24 @@ const Modal = ({ isOpen, onClose }) => {
                   id="Imagen"
                   name="Imagen"
                   accept=".jpg, .jpeg, .png"
-                  multiple
-                  className="flex"
                   onChange={handleImageChange}
                 />
               </div>
             </div>
-            {errorMessage && <div className="error-message">{errorMessage}</div>}
+            {errorMessage && (
+              <div className="error-message">{errorMessage}</div>
+            )}
             <br />
             <div className="actions">
-              <button onClick={onClose} className="btn" style={{width:"130px"}}>
+              <button
+                onClick={onClose}
+                className="btn"
+                style={{ width: "130px" }}
+              >
                 Cancelar
               </button>
               <button type="submit" className="btn">
-                <span>Crear </span>
+                <span>Crear</span>
               </button>
             </div>
             <br />

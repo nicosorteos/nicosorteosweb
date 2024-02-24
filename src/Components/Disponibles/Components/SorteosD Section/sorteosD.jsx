@@ -30,7 +30,7 @@ const SorteosDisponibles = ({ handleMessage }) => {
       <div className="sorteos-grid">
         {sorteos.map((sorteo, index) => (
           <div key={sorteo.idconcursos} className={`sorteo-item${index % 3 === 2 ? ' last-in-row' : ''}`}>
-            <img src={`https://nicosorteos-8b36160039d0.herokuapp.com/uploads${sorteo.imagen}`} alt={sorteo.nombre} />
+            <img src={sorteo.imagen} alt={sorteo.nombre} />
             <h3>{sorteo.nombre}</h3>
             <button onClick={() => handleParticiparClick(sorteo.idconcursos)}>Participar</button>
           </div>
