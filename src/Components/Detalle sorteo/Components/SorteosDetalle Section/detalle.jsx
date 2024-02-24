@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
@@ -9,6 +10,7 @@ const SorteoDetalle = ({ handleMessage }) => {
   const { idSorteo } = useParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [boletos, setBoletos] = useState([]);
+  const [inputBoleto, setInputBoleto] = useState('');
   const [formData, setFormData] = useState({
     nombre: "",
     telefono: "",
@@ -56,7 +58,6 @@ const SorteoDetalle = ({ handleMessage }) => {
     setIsModalOpen(false);
   };
 
-
   // Función para generar un número de boleto aleatorio y disponible
   const elegirBoletoAleatorio = () => {
     let boletoElegido;
@@ -76,6 +77,27 @@ const SorteoDetalle = ({ handleMessage }) => {
     }
   };
 
+  const buscarBoleto = () => {
+    // Asegúrate de que inputBoleto sea un número antes de convertirlo con parseInt
+    if (/^\d+$/.test(inputBoleto)) {
+      const numeroBoleto = parseInt(inputBoleto, 10);
+      if (numeroBoleto >= 1 && numeroBoleto <= 60000) {
+        // Verifica si el boleto ya ha sido seleccionado
+        if (!selectedNumbers.includes(numeroBoleto)) {
+          // Aquí puedes agregar tu lógica para seleccionar el boleto
+          setSelectedNumbers(prevSelectedNumbers => [...prevSelectedNumbers, numeroBoleto]);
+          setInputBoleto('');
+        } else {
+          // El boleto ya está seleccionado, maneja este caso según sea necesario
+          alert("El boleto ya está seleccionado.");
+        }
+      } else {
+        alert("Número de boleto inválido. Debe ser entre 1 y 60000.");
+      }
+    } else {
+      alert("Boleto valido");
+    }
+  };
 
   // Maneja el envío del formulario y prepara el mensaje de WhatsApp
   const handleSubmit = (e) => {
@@ -157,7 +179,6 @@ const SorteoDetalle = ({ handleMessage }) => {
         </div>
         <br />
 
-
         <div className="tooltip-container">
           <button className="info-button">¿Cómo comprar un boleto?</button>
           <span className="tooltip-text">
@@ -167,16 +188,44 @@ const SorteoDetalle = ({ handleMessage }) => {
           </span>
         </div>
 
-        <div className="titulo-boletos">
-          <h4>Elige tus boletos de la suerte:</h4>
-          {/* Botón para elegir un boleto aleatorio */}
-          <button onClick={elegirBoletoAleatorio}>Máquina de la suerte</button>
+
+        <div className="titulo-boletos-container">
+          <h3>Elige tus boletos de la suerte:</h3>
           {selectedNumbers.length > 0 && (
-            <p>
-              <span className="bold-text">Números seleccionados:</span>{" "}
+            <p className="numeros-seleccionados">
+              <span className="bold-text">Números seleccionados: </span>
               {selectedNumbers.join(", ")}
             </p>
           )}
+
+          <button type="button" className="boton-aleatorio" onClick={elegirBoletoAleatorio}>
+            Máquina de la suerte
+          </button>
+          <div >
+            <form onSubmit={(e) => {
+              e.preventDefault();
+              buscarBoleto();
+            }} className="formulario-busqueda">
+         
+              <input
+                type="text"
+                className="input-boleto"
+                placeholder="       Ingresa el boleto"
+                value={inputBoleto}
+                onChange={(e) => setInputBoleto(e.target.value)}
+                onKeyDown={(e) => {
+                  // Permite solo números y la tecla Enter
+                  if (e.key === 'Enter') {
+                    buscarBoleto();
+                  } else if (!/[0-9]/.test(e.key)) {
+                    e.preventDefault();
+                  }
+                }}
+              />
+              {/* El botón de envío está oculto ya que usamos la tecla Enter para enviar */}
+              <button type="submit" style={{ display: 'none' }}>Buscar Boleto</button>
+            </form>
+          </div>
         </div>
 
         <div className="boletos-container">
