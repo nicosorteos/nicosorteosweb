@@ -334,7 +334,7 @@ const SorteoDetalle = ({ handleMessage }) => {
                   Tu boleto solo dura 12 horas apartado.
                 </p>
 
-                <button type="submit">Enviar</button>
+                <button type="submit" onClick={handleSubmit}>Enviar</button>
               </form>
             </div>
           </div>
