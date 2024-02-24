@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebookF, FaInstagram, FaWhatsapp } from 'react-icons/fa'; // Ensure you have react-icons installed
+import { FaFacebookF, FaWhatsapp } from 'react-icons/fa'; // Ensure you have react-icons installed
 import './footer.css';
 
 const Footer = () => {
@@ -19,7 +19,7 @@ const Footer = () => {
                         </li>
                         <li>
                             <strong>Teléfono:</strong>
-                            <a href="tel:+524445454450"> 4445454450</a>
+                            <a href="tel:+524445454450"> (444) 545 4450</a>
                         </li>
                     </ul>
                 </div>
@@ -28,7 +28,7 @@ const Footer = () => {
                     <div className="social-links">
 
                         <a href="https://www.facebook.com/profile.php?id=61555499965336" aria-label="Facebook"><FaFacebookF /></a>
-                        <a href="https://instagram.com" aria-label="Instagram"><FaInstagram /></a>
+                        {/* <a href="https://instagram.com" aria-label="Instagram"><FaInstagram /></a> */}
                         <a href="https://wa.me/4445454450" aria-label="Whatsapp"><FaWhatsapp /></a>
                     </div>
                 </div>

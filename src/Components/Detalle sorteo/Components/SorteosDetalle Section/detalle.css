@@ -51,10 +51,64 @@
 }
 
 .bold-text {
+
   font-weight: bold;
   /* Estilo para negrita */
 }
 
+
+
+
+
+
+
+
+.titulo-boletos-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Alinea al inicio del contenedor */
+  width: 100%;
+  /* Asegura que ocupa todo el ancho */
+}
+
+.numeros-seleccionados {
+  text-align: center;
+  width: 100%;
+
+  /* Añade espacio debajo de los números seleccionados */
+}
+
+.acciones-boletos-container {
+  display: flex;
+  justify-content: space-between;
+  /* Separa el botón y el input */
+  width: 100%;
+}
+
+.boton-aleatorio {
+  background-color: #c13349;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.input-boleto {
+  margin-left: auto;
+  /* Empuja el input hacia la derecha */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px 30px;
+  margin-top: 15px;
+  /* Asegúrate de que el input tenga un ancho definido si no es un bloque */
+}
+
+.boton-aleatorio,
+.input-boleto {
+  flex-grow: 0;
+}
 
 
 
