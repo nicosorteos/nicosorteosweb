@@ -80,7 +80,7 @@ function SorteosList({ handleMessage }) {
               <td>{data.nombre}</td>
               <td>
                 <img
-                  src={`https://nicosorteos-8b36160039d0.herokuapp.com/uploads${data.imagen}`}
+                  src={data.imagen}
                   alt="Imagen del sorteo"
                   style={{ maxWidth: "100px" }}
                 />

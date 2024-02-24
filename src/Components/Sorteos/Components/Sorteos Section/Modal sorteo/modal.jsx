@@ -36,6 +36,8 @@ const Modal = ({ isOpen, onClose }) => {
 
       console.log("Sorteo creado exitosamente");
       onClose();
+      window.location.reload(true);
+
     } catch (error) {
       console.error("Error al crear el sorteo:", error);
       setErrorMessage("Error al crear el sorteo");

@@ -35,6 +35,7 @@ const ModalUpdate = ({ isOpen, onClose, editId }) => {
 
       console.log("Sorteo actualizado exitosamente");
       onClose();
+      window.location.reload(true);
     } catch (error) {
       console.error("Error al actualizar el sorteo:", error);
     }
