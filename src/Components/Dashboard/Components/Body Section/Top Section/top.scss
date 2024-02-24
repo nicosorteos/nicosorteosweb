@@ -30,6 +30,7 @@
                 color: var(--blackColor);
                 font-weight: 700;
                 text-align: left; 
+                margin-right: '750px';
             }
 
             p {
@@ -293,6 +294,8 @@
 
 //Media Queries
 
+
+
 @media screen and (max-width: 990px) {
 
     .cardSection{
@@ -409,6 +412,19 @@
         .tittle{
             text-align: left;
             margin: auto;
+            margin-right: '750px';
+        }
+    }
+
+}
+
+@media screen and (max-width: 1920px) {
+    .headerSection{
+
+        .tittle{
+            text-align: left;
+            margin: auto;
+            margin-right: '0px';
         }
     }
 

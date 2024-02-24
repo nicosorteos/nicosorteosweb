@@ -36,7 +36,7 @@ const Top = () => {
     <div className="topSection">
       <div className="headerSection flex">
         <div className="tittle">
-          <h1 style={{marginRight: '750px'}}>Bienvenido a Nico's Sorteos Potosinos</h1>
+          <h1 >Bienvenido a Nico's Sorteos Potosinos</h1>
           <p>Hola Nico, ¡Bienvenido nuevamente!</p>
         </div>
 
