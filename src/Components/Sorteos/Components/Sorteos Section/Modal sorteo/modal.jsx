@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./modal.scss";
 
 const Modal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
