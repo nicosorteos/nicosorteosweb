@@ -61,7 +61,7 @@ export const Listing = () => {
         {sorteos.map((sorteo, index) => (
           <div className="singleItem" key={index}>
             <img
-              src={`https://nicosorteos-8b36160039d0.herokuapp.com/uploads${sorteo.imagen}`}
+              src={sorteo.imagen}
               alt="Imagen del sorteo"
               style={{ maxWidth: "100px" }}
             />
@@ -80,7 +80,7 @@ export const Listing = () => {
             <div className="card flex">
               <div className="users">
                 <img
-                  src={`https://nicosorteos-8b36160039d0.herokuapp.com/uploads${concursoMasVendido.imagen}`}
+                  src={concursoMasVendido.imagen}
                   alt="Imagen del concurso más vendido"
                 />
               </div>
@@ -107,7 +107,7 @@ export const Listing = () => {
             <div className="card flex">
               <div className="users">
                 <img
-                  src={`https://nicosorteos-8b36160039d0.herokuapp.com/uploads${concursoMasReciente.imagen}`}
+                  src={concursoMasReciente.imagen}
                   alt="Imagen del concurso más reciente"
                 />
               </div>
